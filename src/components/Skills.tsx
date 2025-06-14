@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import {
   Tooltip,
@@ -5,25 +6,41 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { FaPython, FaJsSquare, FaJava, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub } from 'react-icons/fa';
 import { SiC, SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman } from 'react-icons/si';
+import { Brain, Braces, Code2 } from "lucide-react";
 
-const skillsList = [
-    { name: 'Python', icon: <FaPython className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#3776AB]" },
-    { name: 'JavaScript', icon: <FaJsSquare className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#F7DF1E]" },
-    { name: 'Java', icon: <FaJava className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#007396]" },
-    { name: 'C', icon: <SiC className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#A8B9CC]" },
-    { name: 'React.js', icon: <FaReact className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#61DAFB]" },
-    { name: 'HTML5', icon: <FaHtml5 className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#E34F26]" },
-    { name: 'CSS3', icon: <FaCss3Alt className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#1572B6]" },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#06B6D4]" },
-    { name: 'Node.js', icon: <FaNodeJs className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#339933]" },
-    { name: 'Express.js', icon: <SiExpress className="h-10 w-10 transition-colors" />, color: "group-hover:text-foreground" },
-    { name: 'MongoDB', icon: <SiMongodb className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#47A248]" },
-    { name: 'MySQL', icon: <SiMysql className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#4479A1]" },
-    { name: 'Git', icon: <FaGitAlt className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#F05032]" },
-    { name: 'GitHub', icon: <FaGithub className="h-10 w-10 transition-colors" />, color: "group-hover:text-foreground" },
-    { name: 'Postman', icon: <SiPostman className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#FF6C37]" },
+const skillGroups = [
+  {
+    label: "Full Stack",
+    icon: <Code2 className="w-7 h-7 text-accent" />,
+    skills: [
+      { name: 'Python', icon: <FaPython className="h-8 w-8 text-[#3776AB]" /> },
+      { name: 'JavaScript', icon: <FaJsSquare className="h-8 w-8 text-[#F7DF1E]" /> },
+      { name: 'React.js', icon: <FaReact className="h-8 w-8 text-[#61DAFB]" /> },
+      { name: 'Node.js', icon: <FaNodeJs className="h-8 w-8 text-[#339933]" /> },
+      { name: 'Express.js', icon: <SiExpress className="h-8 w-8 text-foreground" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="h-8 w-8 text-[#47A248]" /> },
+      { name: 'MySQL', icon: <SiMysql className="h-8 w-8 text-[#4479A1]" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="h-8 w-8 text-[#06B6D4]" /> },
+      { name: 'HTML5', icon: <FaHtml5 className="h-8 w-8 text-[#E34F26]" /> },
+      { name: 'CSS3', icon: <FaCss3Alt className="h-8 w-8 text-[#1572B6]" /> },
+      { name: 'Git', icon: <FaGitAlt className="h-8 w-8 text-[#F05032]" /> },
+      { name: 'GitHub', icon: <FaGithub className="h-8 w-8 text-foreground" /> },
+      { name: 'Postman', icon: <SiPostman className="h-8 w-8 text-[#FF6C37]" /> },
+    ],
+  },
+  {
+    label: "AI / ML",
+    icon: <Brain className="w-7 h-7 text-accent" />,
+    skills: [
+      { name: 'Python', icon: <FaPython className="h-8 w-8 text-[#3776AB]" /> },
+      { name: 'C', icon: <SiC className="h-8 w-8 text-[#A8B9CC]" /> },
+      { name: 'Java', icon: <FaJava className="h-8 w-8 text-[#007396]" /> },
+      // Add any AI-specific tools here!
+    ],
+  },
 ];
 
 const Skills = () => {
@@ -42,31 +59,46 @@ const Skills = () => {
           </p>
         </motion.div>
         <TooltipProvider delayDuration={100}>
-          <motion.div 
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 md:gap-8"
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ staggerChildren: 0.05 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ staggerChildren: 0.08 }}
           >
-            {skillsList.map((skill) => (
+            {skillGroups.map((group) => (
               <motion.div
-                key={skill.name}
+                key={group.label}
                 variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1 }
+                  hidden: { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0 }
                 }}
               >
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className={`group flex justify-center items-center p-4 bg-background rounded-lg text-muted-foreground aspect-square transition-all duration-300 ease-in-out hover:bg-background/80 hover:scale-110 hover:shadow-lg hover:shadow-accent/10 ${skill.color}`}>
-                      {skill.icon}
+                <Card className="bg-card/80 border-none shadow-xl rounded-2xl transition-transform hover:scale-105">
+                  <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                    <span>{group.icon}</span>
+                    <CardTitle className="text-xl font-bold">{group.label}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-3 md:grid-cols-4 gap-5 pt-2">
+                      {group.skills.map((skill) => (
+                        <Tooltip key={skill.name}>
+                          <TooltipTrigger asChild>
+                            <div className="flex flex-col items-center group cursor-pointer">
+                              <div className="bg-background rounded-lg p-3 mb-1 shadow-md transition-all duration-300 hover-scale">
+                                {skill.icon}
+                              </div>
+                              <span className="text-xs text-foreground mt-1">{skill.name}</span>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{skill.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      ))}
                     </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{skill.name}</p>
-                  </TooltipContent>
-                </Tooltip>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
