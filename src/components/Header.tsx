@@ -1,35 +1,42 @@
 
 import { motion } from "framer-motion";
+
 const navItems = [
   { name: "About", href: "#about" },
-  { name: "Tech Stack", href: "#skills" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-navbar">
-      <nav className="container flex h-16 items-center justify-between">
-        <a
-          href="#"
-          className="text-2xl font-serif font-extrabold text-primary tracking-wide"
-        >
-          R S
-        </a>
-        <div className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-800 font-medium text-base px-3 py-2 rounded-full transition duration-150 hover:bg-primary hover:text-white hover:shadow-md"
-            >
-              {item.name}
-            </a>
-          ))}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          <a href="#" className="text-2xl font-serif font-bold text-foreground">
+            R S
+          </a>
+          <nav className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
+          {/* A mobile menu can be added here for smaller screens */}
         </div>
-      </nav>
-    </header>
+      </div>
+    </motion.header>
   );
 };
+
 export default Header;
