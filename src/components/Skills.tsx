@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   Tooltip,
@@ -8,7 +7,6 @@ import {
 } from "@/components/ui/tooltip";
 import { FaPython, FaJsSquare, FaJava, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaGithub } from 'react-icons/fa';
 import { SiC, SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman } from 'react-icons/si';
-import { VscVisualStudioCode } from 'react-icons/vsc';
 
 const skillsList = [
     { name: 'Python', icon: <FaPython className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#3776AB]" },
@@ -26,7 +24,6 @@ const skillsList = [
     { name: 'Git', icon: <FaGitAlt className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#F05032]" },
     { name: 'GitHub', icon: <FaGithub className="h-10 w-10 transition-colors" />, color: "group-hover:text-foreground" },
     { name: 'Postman', icon: <SiPostman className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#FF6C37]" },
-    { name: 'VS Code', icon: <VscVisualStudioCode className="h-10 w-10 transition-colors" />, color: "group-hover:text-[#007ACC]" },
 ];
 
 const Skills = () => {
