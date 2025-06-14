@@ -14,8 +14,7 @@ import {
 import {
   SiSpringboot, SiMongodb, SiMysql, SiFlask, SiTensorflow, SiPytorch, SiScikitlearn, SiOpencv
 } from "react-icons/si";
-import { Flask } from "lucide-react";
-import { FlaskConical, Braces, FlaskRound } from "lucide-react";
+import { FlaskConical, Braces, FlaskRound, Wrench } from "lucide-react";
 
 // Skill data with rows explicitly defined for Full Stack and AI/ML
 const skillSections = [
@@ -75,7 +74,6 @@ const skillSections = [
     ]
   }
 ];
-
 
 const Skills = () => {
   return (
