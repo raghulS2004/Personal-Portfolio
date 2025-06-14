@@ -8,79 +8,72 @@ import {
 } from "@/components/ui/tooltip";
 import { Card } from "@/components/ui/card";
 import {
-  FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJsSquare, FaJava,
-  FaPython, FaGithub,
+  FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaJava,
+  FaPython, FaDatabase
 } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiMysql, SiVercel } from "react-icons/si";
-import { Code } from "lucide-react";
+import {
+  SiSpringboot, SiMongodb, SiMysql, SiFlask, SiTensorflow, SiPytorch, SiScikitlearn, SiOpencv
+} from "react-icons/si";
+import { FlaskConical, Braces, FlaskRound, Wrench } from "lucide-react";
 
-// All skills mapped out according to your resume
+// Skill data with rows explicitly defined for Full Stack and AI/ML
 const skillSections = [
   {
-    label: "Programming Languages",
-    skills: [
-      { name: "Python", icon: <FaPython className="h-8 w-8 text-[#3776ab]" /> },
-      { name: "JavaScript", icon: <FaJsSquare className="h-8 w-8 text-[#f0db4f]" /> },
-      { name: "Java", icon: <FaJava className="h-8 w-8 text-[#f89820]" /> },
-      { name: "C", icon: <Code className="h-8 w-8 text-foreground" /> },
-    ],
+    label: "Full Stack",
+    icon: <Braces className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    rows: [
+      [
+        { name: "React.js", icon: <FaReact className="h-10 w-10 text-[#61DAFB]" /> },
+        { name: "HTML", icon: <FaHtml5 className="h-10 w-10 text-[#e34c26]" /> },
+        { name: "CSS", icon: <FaCss3Alt className="h-10 w-10 text-[#264de4]" /> },
+        { name: "JavaScript", icon: <FaJsSquare className="h-10 w-10 text-[#f0db4f]" /> },
+      ],
+      [
+        { name: "Java", icon: <FaJava className="h-10 w-10 text-[#f89820]" /> },
+        { name: "Spring Boot", icon: <SiSpringboot className="h-10 w-10 text-[#6db33f]" /> },
+        { name: "MySQL", icon: <SiMysql className="h-10 w-10 text-[#00758f]" /> },
+        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> }
+      ],
+      [
+        { name: "Flask", icon: <SiFlask className="h-10 w-10 text-[#ffffff]" /> }
+      ]
+    ]
   },
   {
-    label: "Web Development",
-    skills: [
-      { name: "React.js", icon: <FaReact className="h-8 w-8 text-[#61DAFB]" /> },
-      { name: "Node.js", icon: <FaNodeJs className="h-8 w-8 text-[#539e43]" /> },
-      { name: "Express.js", icon: <SiExpress className="h-8 w-8 text-[#fff]" /> },
-      { name: "HTML", icon: <FaHtml5 className="h-8 w-8 text-[#e34c26]" /> },
-      { name: "CSS", icon: <FaCss3Alt className="h-8 w-8 text-[#264de4]" /> },
-      { name: "RESTful APIs", icon: <Code className="h-8 w-8 text-foreground" /> },
-    ],
+    label: "AI/ML",
+    icon: <FlaskConical className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    rows: [
+      [
+        { name: "Python", icon: <FaPython className="h-10 w-10 text-[#3776ab]" /> },
+        { name: "TensorFlow", icon: <SiTensorflow className="h-10 w-10 text-[#ff6f00]" /> },
+        { name: "PyTorch", icon: <SiPytorch className="h-10 w-10 text-[#ee4c2c]" /> },
+        { name: "Scikit-learn", icon: <SiScikitlearn className="h-10 w-10 text-[#f7931e]" /> },
+      ],
+      [
+        { name: "OpenCV", icon: <SiOpencv className="h-10 w-10 text-[#5c3ee8]" /> },
+      ]
+    ]
   },
   {
     label: "Databases",
-    skills: [
-      { name: "MongoDB", icon: <SiMongodb className="h-8 w-8 text-[#4db33d]" /> },
-      { name: "MySQL", icon: <SiMysql className="h-8 w-8 text-[#00758f]" /> },
-    ],
+    icon: <FaDatabase className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    rows: [
+      [
+        { name: "MySQL", icon: <SiMysql className="h-10 w-10 text-[#00758f]" /> },
+        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> }
+      ]
+    ]
   },
   {
     label: "Tools",
-    skills: [
-      { name: "Git", icon: <FaGithub className="h-8 w-8 text-[#fff]" /> },
-      { name: "GitHub", icon: <FaGithub className="h-8 w-8 text-[#fff]" /> },
-      { name: "Postman", icon: <Code className="h-8 w-8 text-foreground" /> },
-      { name: "VS Code", icon: <Code className="h-8 w-8 text-[#007ACC]" /> },
-    ],
-  },
-  {
-    label: "Other Skills",
-    skills: [
-      { name: "OOP", icon: <Code className="h-8 w-8 text-foreground" /> },
-      { name: "Debugging", icon: <Code className="h-8 w-8 text-foreground" /> },
-      { name: "Problem Solving", icon: <Code className="h-8 w-8 text-foreground" /> },
-      { name: "Deployment", icon: <Code className="h-8 w-8 text-foreground" /> },
-    ],
-  },
-  {
-    label: "Soft Skills",
-    skills: [
-      { name: "Creativity", icon: null },
-      { name: "Critical Thinking", icon: null },
-      { name: "Leadership", icon: null },
-      { name: "Collaboration", icon: null },
-      { name: "Time Management", icon: null },
-    ],
-  },
-];
-
-// Helper: Split skills into rows of up to 4 per row for consistency
-function chunkArray(array, size) {
-  const results = [];
-  for (let i = 0; i < array.length; i += size) {
-    results.push(array.slice(i, i + size));
+    icon: <Wrench className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    rows: [
+      [
+        { name: "VS Code", icon: <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC/fff" alt="VSCode" className="h-10 w-10" /> }
+      ]
+    ]
   }
-  return results;
-}
+];
 
 const Skills = () => {
   return (
@@ -92,9 +85,9 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-serif font-bold text-center tracking-wide">Skills</h2>
+          <h2 className="text-4xl font-serif font-bold text-center">Skills</h2>
           <p className="text-lg text-muted-foreground text-center mt-4 mb-12 max-w-2xl mx-auto">
-            Here are the core technical and professional skills I bring to the table.
+            A categorized overview of my technical and professional skillset.
           </p>
         </motion.div>
         <TooltipProvider delayDuration={100}>
@@ -109,40 +102,41 @@ const Skills = () => {
               >
                 {/* Section Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-accent">{section.label}</h3>
+                  <span>{section.icon}</span>
+                  <h3 className="text-3xl font-bold font-sans">{section.label}</h3>
                 </div>
-                {/* Section Skills as Grid */}
-                <div className="flex flex-col gap-6">
-                  {chunkArray(section.skills, 4).map((row, rowIdx) => (
+
+                {/* Grid of Skills - ROWS */}
+                <div className="flex flex-col gap-7">
+                  {section.rows.map((row, rowIdx) => (
                     <div
                       key={rowIdx}
-                      className="flex flex-row gap-7 md:gap-9 justify-center items-stretch"
+                      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6`}
                     >
-                      {row.map((skill, idx) =>
-                        skill ? (
-                          <Tooltip key={skill.name}>
-                            <TooltipTrigger asChild>
-                              <Card
-                                className="flex flex-col items-center justify-center bg-card border-none rounded-2xl py-7 w-[110px] h-[120px] shadow-md transition-all hover:scale-[1.06]"
-                              >
-                                <div className="mb-2">{skill.icon}</div>
-                                <span className="mt-2 text-[1rem] text-foreground font-medium font-sans text-center">
-                                  {skill.name}
-                                </span>
-                              </Card>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>{skill.name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        ) : (
-                          <div
-                            key={`empty-${idx}`}
-                            className="w-[110px] h-[120px] opacity-0 pointer-events-none select-none"
-                            aria-hidden
-                          />
-                        )
-                      )}
+                      {row.map((skill, idx) => (
+                        <Tooltip key={skill.name}>
+                          <TooltipTrigger asChild>
+                            <Card
+                              className="flex flex-col items-center justify-center bg-card border-none shadow-lg rounded-2xl py-7 transition-all hover:scale-[1.04] min-h-[110px]"
+                              style={{
+                                minWidth: "120px"
+                              }}
+                            >
+                              <div>{skill.icon}</div>
+                              <span className="mt-3 text-md text-foreground font-medium font-sans">{skill.name}</span>
+                            </Card>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{skill.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      ))}
+                      {/* Fill in empty columns for proper alignment */}
+                      {row.length < 4 &&
+                        Array.from({ length: 4 - row.length }).map((_, i) => (
+                          <div key={`empty-${i}`} className="hidden md:block"></div>
+                        ))
+                      }
                     </div>
                   ))}
                 </div>
