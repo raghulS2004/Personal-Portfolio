@@ -12,7 +12,7 @@ import {
   FaPython, FaGithub,
 } from "react-icons/fa";
 import { SiExpress, SiMongodb, SiMysql, SiVercel } from "react-icons/si";
-import { Database, Github, Vscode, GitBranch, Python, Java, Html, Css, JavaScript } from "lucide-react";
+import { Code } from "lucide-react";
 
 // All skills mapped out according to your resume
 const skillSections = [
@@ -22,7 +22,7 @@ const skillSections = [
       { name: "Python", icon: <FaPython className="h-8 w-8 text-[#3776ab]" /> },
       { name: "JavaScript", icon: <FaJsSquare className="h-8 w-8 text-[#f0db4f]" /> },
       { name: "Java", icon: <FaJava className="h-8 w-8 text-[#f89820]" /> },
-      { name: "C", icon: null },
+      { name: "C", icon: <Code className="h-8 w-8 text-foreground" /> },
     ],
   },
   {
@@ -33,7 +33,7 @@ const skillSections = [
       { name: "Express.js", icon: <SiExpress className="h-8 w-8 text-[#fff]" /> },
       { name: "HTML", icon: <FaHtml5 className="h-8 w-8 text-[#e34c26]" /> },
       { name: "CSS", icon: <FaCss3Alt className="h-8 w-8 text-[#264de4]" /> },
-      { name: "RESTful APIs", icon: null },
+      { name: "RESTful APIs", icon: <Code className="h-8 w-8 text-foreground" /> },
     ],
   },
   {
@@ -47,18 +47,18 @@ const skillSections = [
     label: "Tools",
     skills: [
       { name: "Git", icon: <FaGithub className="h-8 w-8 text-[#fff]" /> },
-      { name: "GitHub", icon: <Github className="h-8 w-8 text-[#fff]" /> },
-      { name: "Postman", icon: null },
-      { name: "VS Code", icon: <Vscode className="h-8 w-8 text-[#007ACC]" /> },
+      { name: "GitHub", icon: <FaGithub className="h-8 w-8 text-[#fff]" /> },
+      { name: "Postman", icon: <Code className="h-8 w-8 text-foreground" /> },
+      { name: "VS Code", icon: <Code className="h-8 w-8 text-[#007ACC]" /> },
     ],
   },
   {
     label: "Other Skills",
     skills: [
-      { name: "OOP", icon: null },
-      { name: "Debugging", icon: null },
-      { name: "Problem Solving", icon: null },
-      { name: "Deployment", icon: null },
+      { name: "OOP", icon: <Code className="h-8 w-8 text-foreground" /> },
+      { name: "Debugging", icon: <Code className="h-8 w-8 text-foreground" /> },
+      { name: "Problem Solving", icon: <Code className="h-8 w-8 text-foreground" /> },
+      { name: "Deployment", icon: <Code className="h-8 w-8 text-foreground" /> },
     ],
   },
   {
