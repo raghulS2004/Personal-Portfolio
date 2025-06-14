@@ -1,4 +1,6 @@
+
 import { motion } from "framer-motion";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { useTypewriterTitles } from "./useTypewriterTitles";
 
 const Hero = () => {
@@ -11,8 +13,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center"
+          className="text-center flex flex-col items-center"
         >
+          <div className="flex justify-center mb-6">
+            <Avatar className="w-32 h-32 shadow-lg border-4 border-primary">
+              <AvatarImage
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=facearea&w=256&h=256"
+                alt="Raghul S"
+                className="object-cover"
+              />
+              <AvatarFallback>RS</AvatarFallback>
+            </Avatar>
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 font-serif">
             Hi, I'm Raghul.
           </h1>
@@ -54,3 +66,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
