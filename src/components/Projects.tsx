@@ -40,50 +40,51 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="container mx-auto py-24 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-4xl font-serif font-bold text-center">Projects</h2>
-      <div className="mt-12 space-y-16">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center`}
-          >
-            <div className={`relative aspect-video bg-secondary rounded-lg overflow-hidden ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.stack.map((tech) => (
-                  <span key={tech} className="bg-secondary px-3 py-1 text-sm rounded-full">{tech}</span>
-                ))}
+    <section id="projects" className="py-20 bg-white">
+      <div className="container">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-serif mb-12 text-foreground">Projects</h2>
+        <div className="space-y-14">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}
+            >
+              <div className={`relative aspect-video bg-muted rounded-2xl overflow-hidden shadow-card ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
               </div>
-              <div className="flex gap-4 mt-6">
-                <Button asChild>
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </a>
-                </Button>
-                {project.liveUrl !== "#" && (
-                  <Button asChild variant="secondary">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
+              <div>
+                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                <p className="text-muted-foreground mb-3">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.stack.map((tech) => (
+                    <span key={tech} className="bg-primary/10 px-3 py-1 text-sm text-primary rounded-full">{tech}</span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  <Button asChild className="rounded-full px-5 py-2">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" /> View Code
                     </a>
                   </Button>
-                )}
+                  {project.liveUrl !== "#" && (
+                    <Button asChild variant="secondary" className="rounded-full px-5 py-2 border border-primary text-primary hover:bg-primary hover:text-white">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
-
 export default Projects;

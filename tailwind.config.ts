@@ -9,99 +9,59 @@ export default {
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	prefix: "",
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: "1.5rem",
 			screens: {
-				'2xl': '1400px'
-			}
+				"2xl": "1120px",
+			},
 		},
 		extend: {
-            fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
-            },
+			fontFamily: {
+				sans: [
+					"Inter",
+					"system-ui",
+					"Segoe UI",
+					"Roboto",
+					"Helvetica Neue",
+					"sans-serif",
+				],
+				serif: ['Playfair Display', 'serif'],
+			},
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				background: "#f8fafc",
+				foreground: "#22223b",
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: "#4f46e5",
+					foreground: "#fff",
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: "#6d28d9",
+					foreground: "#fff",
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+				secondary: {
+					DEFAULT: "#fff",
+					foreground: "#22223b",
+				},
+				muted: {
+					DEFAULT: "#e5e7eb",
+					foreground: "#6b7280",
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: "#fff",
+					foreground: "#22223b",
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				border: "#e5e7eb",
+			},
+			boxShadow: {
+				card: "0 4px 24px 0 rgb(80 140 255 / 6%)",
+				navbar: "0 2px 8px 0 rgb(0 0 0 / 7%)",
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				"2xl": "1.5rem",
 			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
-                'tilt': {
-                    '0%, 50%, 100%': { transform: 'rotate(0deg)' },
-                    '25%': { transform: 'rotate(0.5deg)' },
-                    '75%': { transform: 'rotate(-0.5deg)' },
-                }
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-                'tilt': 'tilt 10s infinite linear'
-			}
-		}
+		},
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
