@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   Tooltip,
@@ -12,7 +11,7 @@ import {
   FaGitAlt, FaGithub, FaDatabase
 } from "react-icons/fa";
 import {
-  SiC, SiExpress, SiMongodb, SiMysql, SiPostman, SiVisualstudiocode
+  SiC, SiExpress, SiMongodb, SiMysql, SiPostman
 } from "react-icons/si";
 import { Code2, Braces, Server, Wrench } from "lucide-react";
 
@@ -55,7 +54,7 @@ const skillGroups = [
       { name: "Git", icon: <FaGitAlt className="h-8 w-8 text-[#F05032]" /> },
       { name: "GitHub", icon: <FaGithub className="h-8 w-8 text-foreground" /> },
       { name: "Postman", icon: <SiPostman className="h-8 w-8 text-[#FF6C37]" /> },
-      { name: "VS Code", icon: <SiVisualstudiocode className="h-8 w-8 text-[#007ACC]" /> },
+      { name: "VS Code", icon: <FaGithub className="h-8 w-8 text-[#007ACC]" /> },
     ]
   },
   {
@@ -136,4 +135,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
