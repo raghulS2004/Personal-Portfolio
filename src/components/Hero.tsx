@@ -1,69 +1,74 @@
 
 import { motion } from "framer-motion";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
-import { useTypewriterTitles } from "./useTypewriterTitles";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, Briefcase, Mail } from "lucide-react";
 
 const Hero = () => {
-  const animatedTitle = useTypewriterTitles();
-
   return (
-    <section id="hero" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="home" className="relative container mx-auto min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 right-0 h-[40rem] w-[40rem] bg-accent/10 rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-0 left-0 h-[30rem] w-[30rem] bg-primary/5 rounded-full blur-[120px]"></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center flex flex-col items-center"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="flex justify-center mb-6">
-            <Avatar className="w-32 h-32 shadow-lg border-4 border-primary">
-              <AvatarImage
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=facearea&w=256&h=256"
-                alt="Raghul S"
-                className="object-cover"
-              />
-              <AvatarFallback>RS</AvatarFallback>
-            </Avatar>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 font-serif">
-            Hi, I'm Raghul.
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground leading-tight">
+            Raghul S
           </h1>
-          <p className="mt-4 text-xl md:text-2xl text-accent min-h-[2.4em]">
-            <span className="font-mono transition-colors duration-500">{animatedTitle}</span>
-            <span className="animate-pulse">|</span>
+          <p className="mt-4 text-xl md:text-2xl text-accent">
+            Full Stack Developer (MERN)
           </p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-muted-foreground mt-6"
-          >
-            I'm a passionate software engineer specializing in crafting exceptional digital experiences.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-8 flex justify-center gap-4"
-          >
-            <a
-              href="#projects"
-              className="bg-primary text-primary-foreground font-semibold py-2 px-6 rounded-full hover:bg-primary/80 transition-colors duration-300"
-            >
-              My Projects
-            </a>
-            <a
-              href="#contact"
-              className="border border-secondary text-secondary-foreground font-semibold py-2 px-6 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors duration-300"
-            >
-              Contact Me
-            </a>
-          </motion.div>
+          <p className="mt-6 text-lg text-muted-foreground max-w-lg">
+            Building scalable, responsive web experiences with clean code and powerful design.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground group">
+              <a href="#projects">
+                <Briefcase className="mr-2 h-5 w-5 transition-transform group-hover:rotate-[-5deg]" />
+                View Projects
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="lg" className="group">
+              <a href="#contact">
+                <Mail className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Contact Me
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="flex justify-center"
+        >
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-secondary/50 shadow-xl">
+              <img
+                src="https://i.postimg.cc/c6md5f8S/image.png"
+                alt="Raghul S"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, repeatType: 'loop' }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <a href="#about" aria-label="Scroll to about section">
+          <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-accent transition-colors" />
+        </a>
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-
