@@ -16,7 +16,14 @@ import {
   FaCss3Alt,
   FaGithub,
 } from "react-icons/fa";
-import { SiC, SiExpress, SiMongodb, SiMysql, SiPostman, SiVercel } from "react-icons/si";
+import {
+  SiC,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostman,
+  SiVercel,
+} from "react-icons/si";
 import { Code, Github, Wrench } from "lucide-react";
 
 // Tech stack data matching resume (excluding soft skills)
@@ -75,50 +82,62 @@ const techStackSections = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-secondary py-24">
+    <section id="skills" className="py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title & Accent Stripe */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-serif font-bold text-center">Tech Stack</h2>
-          <p className="text-lg text-muted-foreground text-center mt-4 mb-12 max-w-2xl mx-auto">
-            A categorized overview of my technical skillset.
-          </p>
+          <div className="flex flex-col items-center text-center mb-10">
+            <h2 className="text-[2.6rem] sm:text-4xl md:text-5xl font-bold font-serif tracking-tight relative z-10">
+              Tech Stack
+              <span className="block h-1 w-16 mx-auto bg-accent rounded mt-4 mb-1" />
+            </h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
+              A categorized overview of my technical skillset.
+            </p>
+          </div>
         </motion.div>
+        {/* Tech Stack Categories */}
         <TooltipProvider delayDuration={100}>
           <div className="flex flex-col gap-16">
-            {techStackSections.map((section) => (
+            {techStackSections.map((section, i) => (
               <motion.div
                 key={section.label}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="w-full"
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-7">
                   <span>{section.icon}</span>
-                  <h3 className="text-3xl font-bold font-sans">{section.label}</h3>
+                  <h3 className="text-2xl font-bold font-sans tracking-wide text-accent">
+                    {section.label}
+                  </h3>
                 </div>
                 <div className="flex flex-col gap-7">
                   {section.rows.map((row, rowIdx) => (
                     <div
                       key={rowIdx}
-                      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6`}
+                      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
                     >
                       {row.map((skill, idx) => (
                         <Tooltip key={skill.name}>
                           <TooltipTrigger asChild>
                             <Card
-                              className="flex flex-col items-center justify-center bg-card border-none shadow-lg rounded-2xl py-7 transition-all hover:scale-[1.04] min-h-[110px]"
-                              style={{
-                                minWidth: "120px"
-                              }}
+                              className="flex flex-col items-center justify-center bg-card border border-border shadow-lg rounded-xl py-8 px-1 relative group transition-all hover:scale-[1.045] hover:border-accent hover:shadow-xl hover:z-20 overflow-hidden"
+                              style={{ minWidth: "120px" }}
                             >
-                              <div>{skill.icon}</div>
-                              <span className="mt-3 text-md text-foreground font-medium font-sans">{skill.name}</span>
+                              {/* Top accent bar */}
+                              <span className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-70 rounded-t-xl transition-all group-hover:opacity-100" />
+                              <div className="z-10">{skill.icon}</div>
+                              <span className="mt-4 text-md text-foreground font-semibold font-sans">
+                                {skill.name}
+                              </span>
                             </Card>
                           </TooltipTrigger>
                           <TooltipContent>
@@ -126,12 +145,11 @@ const Skills = () => {
                           </TooltipContent>
                         </Tooltip>
                       ))}
-                      {/* Fill in empty columns for proper alignment */}
+                      {/* Fill empty columns for alignment */}
                       {row.length < 4 &&
                         Array.from({ length: 4 - row.length }).map((_, i) => (
-                          <div key={`empty-${i}`} className="hidden md:block"></div>
-                        ))
-                      }
+                          <div key={`empty-${i}`} className="hidden md:block" />
+                        ))}
                     </div>
                   ))}
                 </div>
@@ -145,4 +163,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
