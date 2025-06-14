@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Briefcase, Mail } from "lucide-react";
+import profilePic from "/image-1.png";
 
 const Hero = () => {
   return (
@@ -50,7 +51,7 @@ const Hero = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-secondary/50 shadow-xl">
               <img
-                src="/image-1.png"
+                src={profilePic}
                 alt="Raghul S"
                 className="w-full h-full object-cover object-top"
               />
