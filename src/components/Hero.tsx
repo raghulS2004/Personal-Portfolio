@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, MessageCircle } from "lucide-react";
-import { facebook, instagram, twitter } from "lucide-react";
+import { ArrowRight, Download, MessageCircle, Facebook, Instagram, Twitter } from "lucide-react";
 import React from "react";
 
 const Hero = () => {
@@ -37,7 +36,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="transition-colors text-[#fff] hover:text-[#f85741] p-2"
             >
-              <facebook className="w-5 h-5" />
+              <Facebook className="w-5 h-5" />
             </a>
             <a
               href="https://instagram.com/"
@@ -45,7 +44,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="transition-colors text-[#fff] hover:text-[#f85741] p-2"
             >
-              <instagram className="w-5 h-5" />
+              <Instagram className="w-5 h-5" />
             </a>
             <a
               href="https://twitter.com/"
@@ -53,7 +52,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="transition-colors text-[#fff] hover:text-[#f85741] p-2"
             >
-              <twitter className="w-5 h-5" />
+              <Twitter className="w-5 h-5" />
             </a>
             <span className="ml-4 text-xs text-[#f85741]">www.dribbble.com/inaya</span>
           </div>
