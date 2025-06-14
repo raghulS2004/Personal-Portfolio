@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Github, Mail } from "lucide-react";
-import profileImage from "/profile.jpg";
 
 const roles = [
   "Full Stack Developer",
@@ -70,7 +69,7 @@ const AnimatedHeader = () => {
         >
           <div className="rounded-full overflow-hidden border-4 border-accent shadow-lg w-32 h-32 md:w-40 md:h-40 bg-[#181b23] mx-auto md:mx-0">
             <img
-              src={profileImage}
+              src="/profile.jpg"
               alt="Profile"
               className="w-full h-full object-cover object-center"
               draggable={false}
