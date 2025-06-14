@@ -1,11 +1,5 @@
 
 import { motion } from "framer-motion";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Card } from "@/components/ui/card";
 import {
   FaPython,
@@ -16,58 +10,62 @@ import {
   FaCss3Alt,
   FaGithub,
 } from "react-icons/fa";
-import { SiC, SiExpress, SiMongodb, SiMysql, SiPostman, SiVercel } from "react-icons/si";
-import { Code, Github, Wrench } from "lucide-react";
+import {
+  SiC,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostman,
+} from "react-icons/si";
+import { Code, Wrench } from "lucide-react";
 
-// Tech stack data matching resume (excluding soft skills)
 const techStackSections = [
   {
     label: "Programming Languages",
-    icon: <Code className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    icon: <Code className="w-7 h-7 text-primary" />,
     rows: [
       [
-        { name: "Python", icon: <FaPython className="h-10 w-10 text-[#3776ab]" /> },
-        { name: "JavaScript", icon: <FaJsSquare className="h-10 w-10 text-[#f0db4f]" /> },
-        { name: "Java", icon: <FaJava className="h-10 w-10 text-[#f89820]" /> },
-        { name: "C", icon: <SiC className="h-10 w-10 text-[#A8B9CC]" /> },
+        { name: "Python", icon: <FaPython className="h-9 w-9 text-[#3776ab]" /> },
+        { name: "JavaScript", icon: <FaJsSquare className="h-9 w-9 text-[#f0db4f]" /> },
+        { name: "Java", icon: <FaJava className="h-9 w-9 text-[#f89820]" /> },
+        { name: "C", icon: <SiC className="h-9 w-9 text-[#A8B9CC]" /> },
       ],
     ],
   },
   {
     label: "Web Development",
-    icon: <Code className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    icon: <Code className="w-7 h-7 text-primary" />,
     rows: [
       [
-        { name: "React.js", icon: <FaJsSquare className="h-10 w-10 text-[#61DAFB]" /> },
-        { name: "Node.js", icon: <FaNodeJs className="h-10 w-10 text-[#3c873a]" /> },
-        { name: "Express.js", icon: <SiExpress className="h-10 w-10 text-[#FFFFFF]" /> },
-        { name: "HTML", icon: <FaHtml5 className="h-10 w-10 text-[#e34c26]" /> },
+        { name: "React.js", icon: <FaJsSquare className="h-9 w-9 text-[#61DAFB]" /> },
+        { name: "Node.js", icon: <FaNodeJs className="h-9 w-9 text-[#3c873a]" /> },
+        { name: "Express.js", icon: <SiExpress className="h-9 w-9 text-[#000]" /> },
+        { name: "HTML", icon: <FaHtml5 className="h-9 w-9 text-[#e34c26]" /> },
       ],
       [
-        { name: "CSS", icon: <FaCss3Alt className="h-10 w-10 text-[#264de4]" /> },
-        { name: "RESTful APIs", icon: <Wrench className="h-10 w-10 text-[#a78bfa] bg-[#272133] rounded-xl p-1" /> },
+        { name: "CSS", icon: <FaCss3Alt className="h-9 w-9 text-[#264de4]" /> },
+        { name: "RESTful APIs", icon: <Wrench className="h-9 w-9 text-primary" /> },
       ],
     ],
   },
   {
     label: "Databases",
-    icon: <SiMysql className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    icon: <SiMysql className="w-7 h-7 text-primary" />,
     rows: [
       [
-        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> },
-        { name: "MySQL", icon: <SiMysql className="h-10 w-10 text-[#00758f]" /> },
+        { name: "MongoDB", icon: <SiMongodb className="h-9 w-9 text-[#4db33d]" /> },
+        { name: "MySQL", icon: <SiMysql className="h-9 w-9 text-[#00758f]" /> },
       ],
     ],
   },
   {
     label: "Tools",
-    icon: <Wrench className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    icon: <Wrench className="w-7 h-7 text-primary" />,
     rows: [
       [
-        { name: "Git", icon: <Github className="h-10 w-10 text-[#ea4335]" /> },
-        { name: "GitHub", icon: <FaGithub className="h-10 w-10 text-[#fff]" /> },
-        { name: "Postman", icon: <SiPostman className="h-10 w-10 text-[#FF6C37]" /> },
-        { name: "VS Code", icon: <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC/fff" alt="VSCode" className="h-10 w-10" /> },
+        { name: "Git", icon: <FaGithub className="h-9 w-9 text-[#ea4335]" /> },
+        { name: "GitHub", icon: <FaGithub className="h-9 w-9 text-[#222]" /> },
+        { name: "Postman", icon: <SiPostman className="h-9 w-9 text-[#FF6C37]" /> },
       ],
     ],
   },
@@ -75,74 +73,58 @@ const techStackSections = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="bg-secondary py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-background">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-serif font-bold text-center">Tech Stack</h2>
-          <p className="text-lg text-muted-foreground text-center mt-4 mb-12 max-w-2xl mx-auto">
-            A categorized overview of my technical skillset.
-          </p>
-        </motion.div>
-        <TooltipProvider delayDuration={100}>
-          <div className="flex flex-col gap-16">
-            {techStackSections.map((section) => (
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-serif mb-2 text-foreground">Tech Stack</h2>
+          <div className="h-1 w-20 bg-primary rounded-full mb-8" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-8">
+            {techStackSections.map((section, i) => (
               <motion.div
                 key={section.label}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-5">
                   <span>{section.icon}</span>
-                  <h3 className="text-3xl font-bold font-sans">{section.label}</h3>
+                  <h3 className="text-xl font-semibold font-sans tracking-wide text-primary">
+                    {section.label}
+                  </h3>
                 </div>
-                <div className="flex flex-col gap-7">
+                <div className="flex flex-col gap-6">
                   {section.rows.map((row, rowIdx) => (
                     <div
                       key={rowIdx}
-                      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6`}
+                      className="flex flex-wrap gap-6"
                     >
                       {row.map((skill, idx) => (
-                        <Tooltip key={skill.name}>
-                          <TooltipTrigger asChild>
-                            <Card
-                              className="flex flex-col items-center justify-center bg-card border-none shadow-lg rounded-2xl py-7 transition-all hover:scale-[1.04] min-h-[110px]"
-                              style={{
-                                minWidth: "120px"
-                              }}
-                            >
-                              <div>{skill.icon}</div>
-                              <span className="mt-3 text-md text-foreground font-medium font-sans">{skill.name}</span>
-                            </Card>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{skill.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
+                        <Card
+                          key={skill.name}
+                          className="flex flex-col items-center gap-2 bg-white border border-border rounded-2xl shadow-card py-7 px-5 transition-transform duration-200 transform hover:scale-105"
+                        >
+                          <div className="flex items-center justify-center mb-2 rounded-full bg-primary/10 h-14 w-14">
+                            {skill.icon}
+                          </div>
+                          <span className="font-semibold text-foreground text-[1.06rem]">{skill.name}</span>
+                        </Card>
                       ))}
-                      {/* Fill in empty columns for proper alignment */}
-                      {row.length < 4 &&
-                        Array.from({ length: 4 - row.length }).map((_, i) => (
-                          <div key={`empty-${i}`} className="hidden md:block"></div>
-                        ))
-                      }
                     </div>
                   ))}
                 </div>
               </motion.div>
             ))}
           </div>
-        </TooltipProvider>
+        </motion.div>
       </div>
     </section>
   );
 };
-
 export default Skills;
-
