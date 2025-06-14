@@ -8,71 +8,69 @@ import {
 } from "@/components/ui/tooltip";
 import { Card } from "@/components/ui/card";
 import {
-  FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaJava,
-  FaPython, FaDatabase
+  FaPython,
+  FaJava,
+  FaJsSquare,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaGithub,
 } from "react-icons/fa";
-import {
-  SiSpringboot, SiMongodb, SiMysql, SiFlask, SiTensorflow, SiPytorch, SiScikitlearn, SiOpencv
-} from "react-icons/si";
-import { FlaskConical, Braces, FlaskRound, Wrench } from "lucide-react";
+import { SiC, SiExpress, SiMongodb, SiMysql, SiPostman, SiVercel } from "react-icons/si";
+import { Code, Github, Wrench } from "lucide-react";
 
-// Skill data with rows explicitly defined for Full Stack and AI/ML
-const skillSections = [
+// Tech stack data matching resume (excluding soft skills)
+const techStackSections = [
   {
-    label: "Full Stack",
-    icon: <Braces className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
-    rows: [
-      [
-        { name: "React.js", icon: <FaReact className="h-10 w-10 text-[#61DAFB]" /> },
-        { name: "HTML", icon: <FaHtml5 className="h-10 w-10 text-[#e34c26]" /> },
-        { name: "CSS", icon: <FaCss3Alt className="h-10 w-10 text-[#264de4]" /> },
-        { name: "JavaScript", icon: <FaJsSquare className="h-10 w-10 text-[#f0db4f]" /> },
-      ],
-      [
-        { name: "Java", icon: <FaJava className="h-10 w-10 text-[#f89820]" /> },
-        { name: "Spring Boot", icon: <SiSpringboot className="h-10 w-10 text-[#6db33f]" /> },
-        { name: "MySQL", icon: <SiMysql className="h-10 w-10 text-[#00758f]" /> },
-        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> }
-      ],
-      [
-        { name: "Flask", icon: <SiFlask className="h-10 w-10 text-[#ffffff]" /> }
-      ]
-    ]
-  },
-  {
-    label: "AI/ML",
-    icon: <FlaskConical className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    label: "Programming Languages",
+    icon: <Code className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
     rows: [
       [
         { name: "Python", icon: <FaPython className="h-10 w-10 text-[#3776ab]" /> },
-        { name: "TensorFlow", icon: <SiTensorflow className="h-10 w-10 text-[#ff6f00]" /> },
-        { name: "PyTorch", icon: <SiPytorch className="h-10 w-10 text-[#ee4c2c]" /> },
-        { name: "Scikit-learn", icon: <SiScikitlearn className="h-10 w-10 text-[#f7931e]" /> },
+        { name: "JavaScript", icon: <FaJsSquare className="h-10 w-10 text-[#f0db4f]" /> },
+        { name: "Java", icon: <FaJava className="h-10 w-10 text-[#f89820]" /> },
+        { name: "C", icon: <SiC className="h-10 w-10 text-[#A8B9CC]" /> },
+      ],
+    ],
+  },
+  {
+    label: "Web Development",
+    icon: <Code className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    rows: [
+      [
+        { name: "React.js", icon: <FaJsSquare className="h-10 w-10 text-[#61DAFB]" /> },
+        { name: "Node.js", icon: <FaNodeJs className="h-10 w-10 text-[#3c873a]" /> },
+        { name: "Express.js", icon: <SiExpress className="h-10 w-10 text-[#FFFFFF]" /> },
+        { name: "HTML", icon: <FaHtml5 className="h-10 w-10 text-[#e34c26]" /> },
       ],
       [
-        { name: "OpenCV", icon: <SiOpencv className="h-10 w-10 text-[#5c3ee8]" /> },
-      ]
-    ]
+        { name: "CSS", icon: <FaCss3Alt className="h-10 w-10 text-[#264de4]" /> },
+        { name: "RESTful APIs", icon: <Wrench className="h-10 w-10 text-[#a78bfa] bg-[#272133] rounded-xl p-1" /> },
+      ],
+    ],
   },
   {
     label: "Databases",
-    icon: <FaDatabase className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
+    icon: <SiMysql className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
     rows: [
       [
+        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> },
         { name: "MySQL", icon: <SiMysql className="h-10 w-10 text-[#00758f]" /> },
-        { name: "MongoDB", icon: <SiMongodb className="h-10 w-10 text-[#4db33d]" /> }
-      ]
-    ]
+      ],
+    ],
   },
   {
     label: "Tools",
     icon: <Wrench className="w-7 h-7 text-[#a78bfa] bg-[#272133] rounded-xl p-1" />,
     rows: [
       [
-        { name: "VS Code", icon: <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC/fff" alt="VSCode" className="h-10 w-10" /> }
-      ]
-    ]
-  }
+        { name: "Git", icon: <Github className="h-10 w-10 text-[#ea4335]" /> },
+        { name: "GitHub", icon: <FaGithub className="h-10 w-10 text-[#fff]" /> },
+        { name: "Postman", icon: <SiPostman className="h-10 w-10 text-[#FF6C37]" /> },
+        { name: "VS Code", icon: <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC/fff" alt="VSCode" className="h-10 w-10" /> },
+      ],
+    ],
+  },
 ];
 
 const Skills = () => {
@@ -85,14 +83,14 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-serif font-bold text-center">Skills</h2>
+          <h2 className="text-4xl font-serif font-bold text-center">Tech Stack</h2>
           <p className="text-lg text-muted-foreground text-center mt-4 mb-12 max-w-2xl mx-auto">
-            A categorized overview of my technical and professional skillset.
+            A categorized overview of my technical skillset.
           </p>
         </motion.div>
         <TooltipProvider delayDuration={100}>
           <div className="flex flex-col gap-16">
-            {skillSections.map((section) => (
+            {techStackSections.map((section) => (
               <motion.div
                 key={section.label}
                 initial={{ opacity: 0, y: 32 }}
@@ -100,13 +98,10 @@ const Skills = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
               >
-                {/* Section Header */}
                 <div className="flex items-center gap-3 mb-6">
                   <span>{section.icon}</span>
                   <h3 className="text-3xl font-bold font-sans">{section.label}</h3>
                 </div>
-
-                {/* Grid of Skills - ROWS */}
                 <div className="flex flex-col gap-7">
                   {section.rows.map((row, rowIdx) => (
                     <div
@@ -150,3 +145,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
