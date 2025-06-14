@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Briefcase, Mail } from "lucide-react";
@@ -31,9 +32,9 @@ const Hero = () => {
                 View Projects
               </a>
             </Button>
-            <Button asChild variant="secondary" size="lg">
+            <Button asChild variant="secondary" size="lg" className="group">
               <a href="#contact">
-                <Mail className="mr-2 h-5 w-5" />
+                <Mail className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 Contact Me
               </a>
             </Button>
@@ -49,7 +50,7 @@ const Hero = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-secondary/50 shadow-xl">
               <img
-                src="https://i.postimg.cc/T3NMh1qz/image-1.png"
+                src="https://i.postimg.cc/c6md5f8S/image.png"
                 alt="Raghul S"
                 className="w-full h-full object-cover object-top"
               />
