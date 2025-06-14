@@ -75,6 +75,16 @@ const skillSections = [
   }
 ];
 
+// Helper to fill the row so that all skill rows have 4 columns (for alignment)
+function getFilledRow(row: Array<{ name: string; icon: React.ReactNode }>) {
+  const filledRow = [...row];
+  while (filledRow.length < 4) {
+    // Use null for empty spots for alignment
+    filledRow.push(null);
+  }
+  return filledRow;
+}
+
 const Skills = () => {
   return (
     <section id="skills" className="bg-secondary py-24">
@@ -105,40 +115,42 @@ const Skills = () => {
                   <span>{section.icon}</span>
                   <h3 className="text-3xl font-bold font-sans">{section.label}</h3>
                 </div>
-
                 {/* Grid of Skills - ROWS */}
-                <div className="flex flex-col gap-7">
-                  {section.rows.map((row, rowIdx) => (
-                    <div
-                      key={rowIdx}
-                      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6`}
-                    >
-                      {row.map((skill, idx) => (
-                        <Tooltip key={skill.name}>
-                          <TooltipTrigger asChild>
-                            <Card
-                              className="flex flex-col items-center justify-center bg-card border-none shadow-lg rounded-2xl py-7 transition-all hover:scale-[1.04] min-h-[110px]"
-                              style={{
-                                minWidth: "120px"
-                              }}
-                            >
-                              <div>{skill.icon}</div>
-                              <span className="mt-3 text-md text-foreground font-medium font-sans">{skill.name}</span>
-                            </Card>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{skill.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      ))}
-                      {/* Fill in empty columns for proper alignment */}
-                      {row.length < 4 &&
-                        Array.from({ length: 4 - row.length }).map((_, i) => (
-                          <div key={`empty-${i}`} className="hidden md:block"></div>
-                        ))
-                      }
-                    </div>
-                  ))}
+                <div className="flex flex-col gap-8">
+                  {section.rows.map((row, rowIdx) => {
+                    const filledRow = getFilledRow(row);
+                    return (
+                      <div
+                        key={rowIdx}
+                        className="flex flex-row gap-7 md:gap-9 justify-center items-stretch"
+                      >
+                        {filledRow.map((skill, idx) =>
+                          skill ? (
+                            <Tooltip key={skill.name}>
+                              <TooltipTrigger asChild>
+                                <Card
+                                  className="flex flex-col items-center justify-center bg-card border-none rounded-2xl py-7 w-[110px] h-[140px] shadow-lg transition-all hover:scale-[1.07]"
+                                >
+                                  <div>{skill.icon}</div>
+                                  <span className="mt-3 text-md text-foreground font-medium font-sans text-center">{skill.name}</span>
+                                </Card>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{skill.name}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          ) : (
+                            // Empty card placeholder for grid symmetry
+                            <div
+                              key={`empty-${idx}`}
+                              className="w-[110px] h-[140px] opacity-0 pointer-events-none select-none"
+                              aria-hidden
+                            />
+                          )
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
