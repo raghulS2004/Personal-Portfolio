@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
 
 const experience = [
@@ -9,7 +9,7 @@ const experience = [
     description: "Developed features for client web applications, collaborated with a team using agile practices, and helped optimize performance and UI responsiveness.",
     year: "2024",
   },
-  // Add more if needed
+  // Add more experience here as needed
 ];
 
 const education = [
@@ -33,32 +33,33 @@ const education = [
   },
 ];
 
-const sectionVariants = {
+// Compatible Framer Motion variants
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: (custom: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: custom * 0.1,
-      duration: 0.75,
-      type: "spring"
-    }
-  }),
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, type: "spring" } },
 };
 
-const TimelineSection = ({ items, icon, headingColor, sectionTitle }: {
-  items: typeof experience, icon: JSX.Element, headingColor: string, sectionTitle: string
+const TimelineSection = ({
+  items,
+  icon,
+  sectionTitle,
+}: {
+  items: typeof experience;
+  icon: JSX.Element;
+  sectionTitle: string;
 }) => {
   return (
     <div>
       <div className="flex items-center mb-10">
-        <span className={`rounded-full bg-accent/20 p-2 mr-3 text-${headingColor}`}>
+        <span className="rounded-full bg-accent/20 p-2 mr-3 text-accent">
           {icon}
         </span>
-        <h3 className={`text-2xl sm:text-3xl font-bold font-sans text-${headingColor}`}>{sectionTitle}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold font-sans text-accent">
+          {sectionTitle}
+        </h3>
       </div>
       <div className="relative pl-7">
-        {/* Vertical line accent */}
+        {/* Timeline vertical line */}
         <span className="absolute top-0 left-3 w-1 bg-gradient-to-b from-accent/80 via-accent/30 to-transparent rounded-full h-full" />
         <div className="flex flex-col gap-8">
           {items.map((item, idx) => (
@@ -68,22 +69,22 @@ const TimelineSection = ({ items, icon, headingColor, sectionTitle }: {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              custom={idx}
-              variants={sectionVariants}
+              variants={cardVariants}
+              transition={{ delay: idx * 0.08 }}
             >
               {/* Timeline dot */}
-              <span className={`absolute -left-[27px] top-7 w-5 h-5 rounded-full border-4 border-background bg-accent`} />
-              <div className="bg-[#1a1c22] rounded-2xl shadow-md border border-[#23242a] p-6 pb-4 pl-6 relative flex flex-col md:flex-row items-start gap-2 md:gap-6 group hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex-1">
-                  <div className="flex items-center justify-between w-full mb-1">
-                    <h4 className="text-lg sm:text-xl font-bold text-foreground mb-1">{item.title}</h4>
-                    <span className="text-xs text-accent font-semibold tracking-wide bg-[#21223a] rounded px-3 py-1 ml-3">
-                      {item.year}
-                    </span>
-                  </div>
-                  <h5 className="text-base font-semibold text-accent mb-1">{item.org}</h5>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+              <span className="absolute -left-[27px] top-7 w-5 h-5 rounded-full border-4 border-background bg-accent" />
+              <div className="bg-[#181b22] rounded-2xl shadow-md border border-[#23242a] p-6 pb-4 pl-6 flex flex-col group hover:shadow-xl hover:scale-[1.03] transition-all duration-300">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground">
+                    {item.title}
+                  </h4>
+                  <span className="text-xs text-accent font-semibold tracking-wide bg-[#21223a] rounded px-3 py-1 ml-3">
+                    {item.year}
+                  </span>
                 </div>
+                <h5 className="text-base font-semibold text-accent mb-1">{item.org}</h5>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -97,19 +98,20 @@ const Resume = () => {
   return (
     <section id="resume" className="bg-secondary py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl font-serif font-bold text-center mb-14 text-foreground">My Journey</h2>
-        <div className="flex flex-col md:flex-row gap-16 justify-center">
+        <h2 className="text-4xl sm:text-5xl font-serif font-bold text-center mb-14 text-foreground">
+          My Journey
+        </h2>
+        <div className="flex flex-col gap-20 max-w-3xl mx-auto">
+          {/* Education first, Experience second */}
+          <TimelineSection
+            items={education}
+            icon={<GraduationCap className="h-7 w-7 text-accent" />}
+            sectionTitle="Education"
+          />
           <TimelineSection
             items={experience}
             icon={<Briefcase className="h-7 w-7 text-accent" />}
-            headingColor="accent"
             sectionTitle="Experience"
-          />
-          <TimelineSection
-            items={education}
-            icon={<GraduationCap className="h-7 w-7 text-purple-400" />}
-            headingColor="purple-400"
-            sectionTitle="Education"
           />
         </div>
       </div>
