@@ -1,4 +1,3 @@
-
 import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
@@ -9,8 +8,8 @@ const projects = [
     stack: ["React", "Node.js", "Express", "MongoDB"],
     image:
       "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop",
-    githubUrl: "#",
-    liveUrl: "#",
+    githubUrl: "https://github.com/raghulS2004/Blog-App",
+    liveUrl: "https://blog-app-im5z-f5w2j5jyq-raghuls-projects-bf0226ce.vercel.app",
   },
   {
     title: "RecipeHub",
@@ -29,8 +28,8 @@ const projects = [
     stack: ["JavaScript", "HTML/CSS", "API"],
     image:
       "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800&auto=format&fit=crop",
-    githubUrl: "#",
-    liveUrl: "#",
+    githubUrl: "https://github.com/raghulS2004/Weather-App",
+    liveUrl: "https://weather-app-alpha-five-11.vercel.app",
   },
   {
     title: "E-Commerce UI",
@@ -46,25 +45,23 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="bg-[#14161a] py-24 px-4 min-h-[100vh] font-sans"
-    >
-      <div className="container mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-white tracking-tight font-sans">
+    <section id="projects" className="w-full bg-background py-24 min-h-[100vh] font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-5xl font-serif font-bold bg-gradient-to-r from-accent via-accent/80 to-accent/60 bg-clip-text text-transparent text-center">
           Projects
         </h2>
+        <div className="h-1 w-24 bg-accent rounded-full mx-auto mt-6 mb-12" />
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.title}
-              className="bg-[#1a1c22] rounded-2xl overflow-hidden shadow-md border border-[#23242a] flex flex-col hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 group"
+              className="bg-[#1a1c22] rounded-2xl overflow-hidden shadow-md border border-[#23242a] flex flex-col transition-all duration-300 group hover:shadow-2xl hover:scale-[1.04] hover:border-accent/60 hover:-translate-y-2"
             >
               <div className="w-full h-48 bg-[#23242a] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <div className="flex flex-col flex-1 p-6">
