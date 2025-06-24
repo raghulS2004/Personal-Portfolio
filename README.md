@@ -74,8 +74,8 @@ You can fork this repo, connect it to your own Vercel account, and deploy direct
 
 ## 🙋‍♂️ Author
 
-**Raghul S**
-[Portfolio](https://personal-portfolio-omega-beige.vercel.app/)
+**Raghul S** .
+[Portfolio](https://personal-portfolio-omega-beige.vercel.app/) .
 [GitHub](https://github.com/raghulS2004)
 
 ---
