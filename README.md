@@ -84,9 +84,4 @@ You can fork this repo, connect it to your own Vercel account, and deploy direct
 
 This project is open-source and available.
 
-```
 
----
-
-Let me know if you'd like this version customized further with your actual project tech stack (React / Vite / Next.js, etc.), or if you want a matching `vercel.json` config file too.
-```
