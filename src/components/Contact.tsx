@@ -11,7 +11,7 @@ const socialLinks = [
     { icon: <Linkedin />, href: "https://linkedin.com/in/profile-raghul", name: "LinkedIn" },
     { icon: <Github />, href: "https://github.com/raghuls2004", name: "GitHub" },
     { icon: <Code />, href: "https://leetcode.com/u/raghuls2004", name: "LeetCode" },
-    { icon: <LinkIcon />, href: "https://raghuls.netlify.app", name: "Website" },
+    { icon: <LinkIcon />, href: "https://personal-portfolio-omega-beige.vercel.app/", name: "Website" },
 ];
 
 const containerVariants: Variants = {
