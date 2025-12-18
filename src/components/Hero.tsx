@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Briefcase, Mail, Github, Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
+import profileImg from "@/favicon_io/Picsart_25-11-05_13-21-17-615-removebg-preview.png";
 
 const roles = [
   "Full Stack Developer (MERN)",
@@ -66,7 +67,7 @@ const Hero = () => {
           </p>
           <div className="flex items-center justify-center md:justify-start gap-4">
             <motion.a
-              href="https://github.com/yourusername"
+              href="https://github.com/raghulS2004"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -76,7 +77,7 @@ const Hero = () => {
               <Github className="h-5 w-5 sm:h-6 sm:w-6" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/profile-raghul"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -111,7 +112,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-white/10 rounded-full blur-xl sm:blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-secondary/50 shadow-xl group-hover:shadow-2xl transition-all duration-500">
               <img
-                src="https://i.postimg.cc/c6md5f8S/image.png"
+                src={profileImg}
                 alt="Raghul S"
                 className="w-full h-full object-cover object-top"
               />
